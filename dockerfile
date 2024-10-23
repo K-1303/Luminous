@@ -1,5 +1,5 @@
 # Base image for the backend (Django)
-FROM python:3.11.9-slim-buster as backend
+FROM python:3.11.9-slim-bookworm as backend
 
 # Set the working directory in the container
 WORKDIR /app
