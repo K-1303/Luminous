@@ -21,4 +21,4 @@ RUN ./run.sh
 EXPOSE 8000
 
 # Set the command to run when the container starts
-CMD ["python", "manage.py", "runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
