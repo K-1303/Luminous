@@ -13,7 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the project files to the working directory
 COPY . .
 
-RUN bash run.sh
+RUN chmod +x ./run.sh
+
+RUN ./run.sh
 
 # Expose the port that Django runs on
 EXPOSE 8000
