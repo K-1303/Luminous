@@ -52,7 +52,7 @@ class Command(BaseCommand):
         for day_shift in range(num_days):
             for entry in base_data:
                 # Generate the time for the current day
-                entry_time = specific_datetime(day_shift, entry['time'])
+                entry_time = specific_datetime(day_shift - 15, entry['time'])
 
                 # Add variance to the grid usage and solar production values
                 grid_usage = add_variance(entry['usage'], usage_variance)

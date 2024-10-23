@@ -23,9 +23,3 @@ class tariff(models.Model):
     time = models.DateTimeField()
     # energy price in kwh
     tariff_price = models.FloatField()
-
-
-
-
-    
-    
