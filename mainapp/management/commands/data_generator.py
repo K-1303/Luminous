@@ -22,7 +22,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Number of days to generate data for
-        num_days = 30  # For example, generate data for 30 days
+        num_days = 60  # For example, generate data for 30 days
 
         # Variance for random fluctuation
         usage_variance = 0.25  # Adjust this to vary the usage randomly
@@ -52,7 +52,7 @@ class Command(BaseCommand):
         for day_shift in range(num_days):
             for entry in base_data:
                 # Generate the time for the current day
-                entry_time = specific_datetime(day_shift - 15, entry['time'])
+                entry_time = specific_datetime(day_shift - 30, entry['time'])
 
                 # Add variance to the grid usage and solar production values
                 grid_usage = add_variance(entry['usage'], usage_variance)

@@ -13,6 +13,10 @@ from django.shortcuts import render
 from sklearn.linear_model import LinearRegression
 import numpy as np
 from datetime import datetime, timedelta
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Hello, World!")
 
 
 @method_decorator(csrf_exempt, name='dispatch')
