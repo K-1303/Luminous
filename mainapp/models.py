@@ -10,6 +10,7 @@ class usage(models.Model):
     # energy usage in kwh
     solar_energy_usage = models.FloatField()
     grid_energy_usage = models.FloatField()
+    efficiency = models.FloatField(default=0)
     
 class solar(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -71,6 +71,7 @@ def get_energy_data(request, user_id=1):
         
         # Structure the data in the desired format
         energy_data.append({
+            'efficiency': usage_entry.efficiency,
             'datetime': usage_entry.time.strftime('%Y-%m-%d %H:%M:%S'),
             'time': usage_entry.time.strftime('%H:%M'),
             'usage': usage_entry.grid_energy_usage + (solar_entry.solar_energy if solar_entry else 0),

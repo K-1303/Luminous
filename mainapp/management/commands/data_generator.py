@@ -65,21 +65,31 @@ class Command(BaseCommand):
                 else:
                     solar_usage = 0
 
+                total_energy_cost = grid_usage * cost_value + solar_production * cost_value
+
+                # Calculate efficiency
+                if total_energy_cost > 0:
+                    efficiency = round((solar_usage / total_energy_cost) , 2)
+                else:
+                    efficiency = 0
+
                 # Create the usage data (grid and solar energy usage)
-                usage_entries.append(usage(
+                usage_entry = usage(
                     user_id=user,
                     time=entry_time,
                     solar_energy_usage=solar_usage,
-                    grid_energy_usage=grid_usage - solar_usage  # Remaining usage from grid
-                ))
-
+                    grid_energy_usage=grid_usage - solar_usage,  # Remaining usage from grid
+                    efficiency=efficiency  # Assign calculated efficiency
+                )
+                usage_entries.append(usage_entry)
+        
                 # Create the solar data (solar energy produced)
                 solar_entries.append(solar(
                     user_id=user,
                     time=entry_time,
                     solar_energy=solar_production
                 ))
-
+        
                 # Create the tariff data (tariff based on usage cost)
                 tariff_entries.append(tariff(
                     time=entry_time,
